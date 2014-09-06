@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with android-intent-utils. If not, see <http://www.gnu.org/licenses/>.
 
-package de.topobyte.android.maps.utils.intent;
+package de.topobyte.android.intent.utils;
 
 public enum ThankOption {
 	THANK_RATE,

@@ -68,6 +68,17 @@ public class IntentFactory {
 		return createAppDetailsIntent(packageName);
 	}
 
+	private static String weatherUrl = "http://weather.topobyte.de/weather/";
+
+	public static Intent createTopobyteWeatherIntent(String iso3, String name,
+			String lang, boolean preferFahrenheit) {
+		String url = weatherUrl + iso3 + "/" + name + "?lang=" + lang;
+		if (preferFahrenheit) {
+			url += "&unit=fahrenheit";
+		}
+		return IntentFactory.createUrlIntent(url);
+	}
+
 	public static Intent createThanksAppDetailIntent(ThankOption amount) {
 		String packageName;
 		switch (amount) {

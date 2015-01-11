@@ -74,7 +74,7 @@ public class IntentFactory {
 			String lang, boolean preferFahrenheit) {
 		String url = weatherUrl + iso3 + "/" + name + "?lang=" + lang;
 		if (preferFahrenheit) {
-			url += "&unit=fahrenheit";
+			url += "&unit=f";
 		}
 		return IntentFactory.createUrlIntent(url);
 	}

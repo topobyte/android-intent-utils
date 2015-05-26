@@ -3,3 +3,8 @@ bin/*
 dist
 dist/*
 *.swp
+.gradle
+build
+.classpath
+.project
+.settings

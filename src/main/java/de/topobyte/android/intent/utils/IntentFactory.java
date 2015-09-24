@@ -114,4 +114,9 @@ public class IntentFactory {
 		return createAppDetailsIntent(packageName);
 	}
 
+	public static Intent createAtlasIntent(Context context) {
+		String packageName = "de.topobyte.apps.bms.atlas";
+		return createAppDetailsIntent(packageName);
+	}
+
 }

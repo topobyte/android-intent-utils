@@ -109,4 +109,9 @@ public class IntentFactory {
 		return createAppDetailsIntent(packageName);
 	}
 
+	public static Intent createDiceIntent(Context context) {
+		String packageName = "de.topobyte.games.dice";
+		return createAppDetailsIntent(packageName);
+	}
+
 }

@@ -103,4 +103,10 @@ public class IntentFactory {
 		String packageName = context.getApplicationContext().getPackageName();
 		return createAppDetailsIntent(packageName);
 	}
+
+	public static Intent createAppManagerIntent(Context context) {
+		String packageName = "de.topobyte.topobyteapps";
+		return createAppDetailsIntent(packageName);
+	}
+
 }

@@ -10,11 +10,15 @@ group = pGroup
 version = pVersion
 
 repositories {
+    maven {
+        url 'http://mvn.topobyte.de'
+    }
     mavenCentral()
 }
 
 dependencies {
     compile 'com.google.android:android:4.1.1.4'
+    compile 'de.topobyte:android-intent-factory:0.0.1'
 }
 
 uploadArchives {

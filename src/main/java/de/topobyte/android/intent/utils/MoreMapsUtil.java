@@ -26,7 +26,7 @@ public class MoreMapsUtil {
 
 	public static Intent createIntent(Context context) {
 		String language = Locale.getDefault().getLanguage();
-		return IntentFactory.createTopobyteMapsIntent(context, language);
+		return TopobyteIntentFactory.createTopobyteMapsIntent(context, language);
 	}
 
 }

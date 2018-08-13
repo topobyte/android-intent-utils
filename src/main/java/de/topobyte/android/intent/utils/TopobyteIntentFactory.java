@@ -19,59 +19,42 @@ package de.topobyte.android.intent.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 
-public class IntentFactory {
+public class TopobyteIntentFactory
+{
 
-	public static Intent createUrlIntent(String url) {
-		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-		return intent;
-	}
-
-	public static Intent createWikipediaIntent(String languageCode,
-			String pageName) {
-		String url = "http://" + languageCode + ".wikipedia.org/wiki/"
-				+ pageName;
-		return createUrlIntent(url);
-	}
-
-	public static Intent createTopobyteAppsIntent() {
-		String link = "market://search?q=pub:Topobyte.de";
-		Intent intent = new Intent(Intent.ACTION_VIEW);
-		intent.setData(Uri.parse(link));
-		return intent;
+	public static Intent createTopobyteAppsIntent()
+	{
+		return IntentFactory.createGooglePlayPublisherIntent("Topobyte.de");
 	}
 
 	private static String mapsUrl = "http://spm.topobyte.de/apps";
 
-	public static Intent createTopobyteMapsIntent(Context context) {
+	public static Intent createTopobyteMapsIntent(Context context)
+	{
 		String packageName = context.getApplicationContext().getPackageName();
 		String url = mapsUrl + "?id=" + packageName;
 		return IntentFactory.createUrlIntent(url);
 	}
 
-	public static Intent createTopobyteMapsIntent(Context context, String lang) {
+	public static Intent createTopobyteMapsIntent(Context context, String lang)
+	{
 		String packageName = context.getApplicationContext().getPackageName();
 		String url = mapsUrl + "?lang=" + lang + "&id=" + packageName;
 		return IntentFactory.createUrlIntent(url);
 	}
 
-	public static Intent createAppDetailsIntent(String packageName) {
-		String link = "market://details?id=" + packageName;
-		Intent intent = new Intent(Intent.ACTION_VIEW);
-		intent.setData(Uri.parse(link));
-		return intent;
-	}
-
-	public static Intent createStadtplanNGAppDetailIntent(String identifier) {
+	public static Intent createStadtplanNGAppDetailIntent(String identifier)
+	{
 		String packageName = "de.topobyte.apps.offline.stadtplan." + identifier;
-		return createAppDetailsIntent(packageName);
+		return IntentFactory.createGooglePlayAppDetailsIntent(packageName);
 	}
 
 	private static String weatherUrl = "http://weather.topobyte.de/weather/";
 
 	public static Intent createTopobyteWeatherIntent(String iso3, String name,
-			String lang, boolean preferFahrenheit) {
+			String lang, boolean preferFahrenheit)
+	{
 		String url = weatherUrl + iso3 + "/" + name + "?lang=" + lang;
 		if (preferFahrenheit) {
 			url += "&unit=f";
@@ -79,7 +62,8 @@ public class IntentFactory {
 		return IntentFactory.createUrlIntent(url);
 	}
 
-	public static Intent createThanksAppDetailIntent(ThankOption amount) {
+	public static Intent createThanksAppDetailIntent(ThankOption amount)
+	{
 		String packageName;
 		switch (amount) {
 		default:
@@ -96,27 +80,25 @@ public class IntentFactory {
 			packageName = "de.topobyte.apps.thanks.amount10";
 			break;
 		}
-		return createAppDetailsIntent(packageName);
+		return IntentFactory.createGooglePlayAppDetailsIntent(packageName);
 	}
 
-	public static Intent createRateAppIntent(Context context) {
-		String packageName = context.getApplicationContext().getPackageName();
-		return createAppDetailsIntent(packageName);
-	}
-
-	public static Intent createAppManagerIntent(Context context) {
+	public static Intent createAppManagerIntent(Context context)
+	{
 		String packageName = "de.topobyte.topobyteapps";
-		return createAppDetailsIntent(packageName);
+		return IntentFactory.createGooglePlayAppDetailsIntent(packageName);
 	}
 
-	public static Intent createDiceIntent(Context context) {
+	public static Intent createDiceIntent(Context context)
+	{
 		String packageName = "de.topobyte.games.dice";
-		return createAppDetailsIntent(packageName);
+		return IntentFactory.createGooglePlayAppDetailsIntent(packageName);
 	}
 
-	public static Intent createAtlasIntent(Context context) {
+	public static Intent createAtlasIntent(Context context)
+	{
 		String packageName = "de.topobyte.apps.bms.atlas";
-		return createAppDetailsIntent(packageName);
+		return IntentFactory.createGooglePlayAppDetailsIntent(packageName);
 	}
 
 }

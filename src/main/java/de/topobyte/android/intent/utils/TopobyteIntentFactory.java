@@ -29,6 +29,7 @@ public class TopobyteIntentFactory
 	}
 
 	private static String mapsUrl = "http://spm.topobyte.de/apps";
+	private static String faqUrl = "http://spm.topobyte.de/faq";
 
 	public static Intent createTopobyteMapsIntent(Context context)
 	{
@@ -41,6 +42,20 @@ public class TopobyteIntentFactory
 	{
 		String packageName = context.getApplicationContext().getPackageName();
 		String url = mapsUrl + "?lang=" + lang + "&id=" + packageName;
+		return IntentFactory.createUrlIntent(url);
+	}
+
+	public static Intent createTopobyteFAQIntent(Context context)
+	{
+		String packageName = context.getApplicationContext().getPackageName();
+		String url = faqUrl + "?id=" + packageName;
+		return IntentFactory.createUrlIntent(url);
+	}
+
+	public static Intent createTopobyteFAQIntent(Context context, String lang)
+	{
+		String packageName = context.getApplicationContext().getPackageName();
+		String url = faqUrl + "?lang=" + lang + "&id=" + packageName;
 		return IntentFactory.createUrlIntent(url);
 	}
 

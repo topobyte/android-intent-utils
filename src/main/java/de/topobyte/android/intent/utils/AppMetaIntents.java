@@ -32,4 +32,10 @@ public class AppMetaIntents
 				language);
 	}
 
+	public static Intent createFAQIntent(Context context)
+	{
+		String language = Locale.getDefault().getLanguage();
+		return TopobyteIntentFactory.createTopobyteFAQIntent(context, language);
+	}
+
 }

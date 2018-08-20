@@ -22,11 +22,14 @@ import java.util.Locale;
 import android.content.Context;
 import android.content.Intent;
 
-public class MoreMapsUtil {
+public class AppMetaIntents
+{
 
-	public static Intent createIntent(Context context) {
+	public static Intent createMapListIntent(Context context)
+	{
 		String language = Locale.getDefault().getLanguage();
-		return TopobyteIntentFactory.createTopobyteMapsIntent(context, language);
+		return TopobyteIntentFactory.createTopobyteMapsIntent(context,
+				language);
 	}
 
 }
